@@ -1,0 +1,53 @@
+@mixin progress-background($background) {
+    meter, progress, .progress {
+        background: $background;
+    }
+
+    progress::-webkit-progress-bar {
+        background: $background;
+    }
+
+    progress::-moz-progress-bar {
+        background: $background;
+    }
+
+    meter::-webkit-meter-bar {
+        background: $background;
+    }
+
+    meter::-moz-meter-bar {
+        background: $background;
+    }
+}
+
+@mixin progress-metter-background($background) {
+
+    .progress-meter {
+        background: $background;
+    }
+
+    progress {
+        color: $background;
+    }
+
+    progress::-webkit-progress-value {
+        background: $background;
+    }
+
+    progress::-moz-progress-value {
+        background: $background;
+    }
+
+    meter::-webkit-meter-optimum-value {
+        background: $background;
+    }
+
+    meter::-moz-meter-optimum {
+        background: $background;
+    }
+}
+@mixin progress-meter-text-color($color) {
+    .progress-meter-text {
+        color: $color;
+    }
+}
