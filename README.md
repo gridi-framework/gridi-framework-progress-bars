@@ -1,7 +1,7 @@
 # Gridi Framework Progress Bars
 
 ## Install
-`brew install gridi-framework-progress-bars`
+`bower install gridi-framework-progress-bars`
 
 ## Licence
 
