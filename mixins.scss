@@ -1,53 +1,88 @@
-@mixin progress-background($background) {
+@mixin include-progress-colors($background, $meter-background) {
+    background: $background;
+    color: $meter-background;
+
+    &::-webkit-progress-bar {
+        background: $background;
+    }
+
+    &::-moz-progress-bar {
+        background: $background;
+    }
+
+    &::-webkit-progress-value {
+        background: $meter-background;
+    }
+
+    &::-moz-progress-value {
+        background: $meter-background;
+    }
+}
+
+@mixin include-meter-colors($background, $meter-background) {
+    background: $background;
+
+    &::-webkit-meter-bar {
+        background: $background;
+    }
+
+    &::-moz-meter-bar {
+        background: $background;
+    }
+
+    &::-webkit-meter-optimum-value {
+        background: $meter-background;
+    }
+
+    &::-moz-meter-optimum {
+        background: $meter-background;
+    }
+}
+
+@mixin progress-bars-colors($background, $meter-background, $color) {
     meter, progress, .progress {
         background: $background;
     }
 
-    progress::-webkit-progress-bar {
-        background: $background;
-    }
+    .progress .progress-meter {
+        background: $meter-background;
 
-    progress::-moz-progress-bar {
-        background: $background;
-    }
-
-    meter::-webkit-meter-bar {
-        background: $background;
-    }
-
-    meter::-moz-meter-bar {
-        background: $background;
-    }
-}
-
-@mixin progress-metter-background($background) {
-
-    .progress-meter {
-        background: $background;
+        .progress-meter-text {
+            color: $color;
+        }
     }
 
     progress {
-        color: $background;
+        color: $meter-background;
+        @include include-progress-colors($background, $meter-background);
+
     }
 
-    progress::-webkit-progress-value {
-        background: $background;
-    }
-
-    progress::-moz-progress-value {
-        background: $background;
-    }
-
-    meter::-webkit-meter-optimum-value {
-        background: $background;
-    }
-
-    meter::-moz-meter-optimum {
-        background: $background;
+    meter {
+        @include include-meter-colors($background, $meter-background);
     }
 }
-@mixin progress-meter-text-color($color) {
-    .progress-meter-text {
-        color: $color;
+
+@mixin class-progress-bars-colors($class, $background, $meter-background, $color) {
+    meter, progress, .progress {
+        &.#{$class} {
+            background: $background;
+        }
+    }
+
+    .progress.#{$class} .progress-meter {
+        background: $meter-background;
+
+        .progress-meter-text {
+            color: $color;
+        }
+    }
+
+    progress.#{$class} {
+        @include include-progress-colors($background, $meter-background);
+    }
+
+    meter.#{$class} {
+        @include include-meter-colors($background, $meter-background);
     }
 }

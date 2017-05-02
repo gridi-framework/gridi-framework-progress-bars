@@ -4,61 +4,34 @@ meter, progress, .progress {
     height: $progress-height;
     margin: $progress-margin;
     border: 0;
+    outline: 0;
     background: $progress-background-color;
     padding: 0;
     @include appearance(none);
     @include border-radius(0);
 }
 
-.progress-meter {
+.progress .progress-meter {
     display: block;
     width: 0;
     height: 100%;
     background: $progress-meter-background-color;
-}
 
-.progress-meter-text {
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: $progress-meter-text-font-size;
-    line-height: $progress-height;
-    text-align: center;
-    color: $progress-meter-text-color;
+    .progress-meter-text {
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-size: $progress-meter-text-font-size;
+        line-height: $progress-height;
+        text-align: center;
+        color: $progress-meter-text-color;
+    }
 }
 
 progress {
-    color: $progress-meter-background-color;
+    @include include-progress-colors($progress-background-color, $progress-meter-background-color)
 }
 
-progress::-webkit-progress-bar {
-    background: $progress-background-color;
-}
-
-progress::-moz-progress-bar {
-    background: $progress-background-color;
-}
-
-progress::-webkit-progress-value {
-    background: $progress-meter-background-color;
-}
-
-progress::-moz-progress-value {
-    background: $progress-meter-background-color;
-}
-
-meter::-webkit-meter-bar {
-    background: $progress-background-color;
-}
-
-meter::-moz-meter-bar {
-    background: $progress-background-color;
-}
-
-meter::-webkit-meter-optimum-value {
-    background: $progress-meter-background-color;
-}
-
-meter::-moz-meter-optimum {
-    background: $progress-meter-background-color;
+meter {
+    @include include-meter-colors($progress-background-color, $progress-meter-background-color)
 }
