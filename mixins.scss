@@ -6,7 +6,7 @@
         background: $background;
     }
 
-    &::-moz-progress-bar {
+    &::-moz-progress-value {
         background: $background;
     }
 
@@ -14,7 +14,7 @@
         background: $meter-background;
     }
 
-    &::-moz-progress-value {
+    &::-moz-progress-bar {
         background: $meter-background;
     }
 }
@@ -30,13 +30,18 @@
         background: $background;
     }
 
-    &::-webkit-meter-optimum-value {
+    &::-webkit-meter-optimum-value,
+    &::-webkit-meter-suboptimum-value,
+    &::-webkit-meter-even-less-good-value {
         background: $meter-background;
     }
 
-    &::-moz-meter-optimum {
+    &:-moz-meter-optimum::-moz-meter-bar,
+    &:-moz-meter-sub-optimum::-moz-meter-bar,
+    &:-moz-meter-sub-sub-optimum::-moz-meter-bar {
         background: $meter-background;
     }
+
 }
 
 @mixin progress-bars-colors($background, $meter-background, $color) {

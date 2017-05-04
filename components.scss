@@ -7,8 +7,11 @@ meter, progress, .progress {
     outline: 0;
     background: $progress-background-color;
     padding: 0;
-    @include appearance(none);
     @include border-radius(0);
+}
+
+progress, .progress {
+    @include appearance(none);
 }
 
 .progress .progress-meter {
@@ -29,9 +32,9 @@ meter, progress, .progress {
 }
 
 progress {
-    @include include-progress-colors($progress-background-color, $progress-meter-background-color)
+    @include include-progress-colors($progress-background-color, $progress-meter-background-color);
 }
 
 meter {
-    @include include-meter-colors($progress-background-color, $progress-meter-background-color)
+    @include include-meter-colors($progress-background-color, $progress-meter-background-color);
 }
