@@ -2,8 +2,8 @@ meter, progress, .progress {
     display: block;
     width: 100%;
     height: $progress-height;
-    margin: $progress-margin;
-    border: 0;
+    @include include-element-margin($progress-margin-top, $progress-margin-bottom, $progress-margin-left, $progress-margin-right, $progress-margin-for-screens);
+    border: $progress-border;
     outline: 0;
     background: $progress-background-color;
     padding: 0;
