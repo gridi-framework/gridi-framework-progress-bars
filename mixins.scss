@@ -1,93 +1,132 @@
-@mixin include-progress-colors($background, $meter-background) {
-    background: $background;
-    color: $meter-background;
+@mixin include-progress-colors($colors-map) {
+    @if map-has-key($colors-map, background) and map-get($colors-map, background) {
+        background: map-get($colors-map, background);
+    }
+    @if map-has-key($colors-map, meter-background) and map-get($colors-map, meter-background) {
+        color: map-get($colors-map, meter-background);
+    }
 
     &::-webkit-progress-bar {
-        background: $background;
+        @if map-has-key($colors-map, background) and map-get($colors-map, background) {
+            background: map-get($colors-map, background);
+        }
     }
 
     &::-moz-progress-value {
-        background: $background;
+        @if map-has-key($colors-map, background) and map-get($colors-map, background) {
+            background: map-get($colors-map, background);
+        }
     }
 
     &::-webkit-progress-value {
-        background: $meter-background;
+        @if map-has-key($colors-map, meter-background) and map-get($colors-map, meter-background) {
+            background: map-get($colors-map, meter-background);
+        }
     }
 
     &::-moz-progress-bar {
-        background: $meter-background;
+        @if map-has-key($colors-map, meter-background) and map-get($colors-map, meter-background) {
+            background: map-get($colors-map, meter-background);
+        }
     }
 }
 
-@mixin include-meter-colors($background, $meter-background) {
-    background: $background;
+@mixin include-meter-colors($colors-map) {
+    @if map-has-key($colors-map, background) and map-get($colors-map, background) {
+        background: map-get($colors-map, background);
+    }
 
     &::-webkit-meter-bar {
-        background: $background;
+        @if map-has-key($colors-map, background) and map-get($colors-map, background) {
+            background: map-get($colors-map, background);
+        }
     }
 
     &::-moz-meter-bar {
-        background: $background;
+        @if map-has-key($colors-map, background) and map-get($colors-map, background) {
+            background: map-get($colors-map, background);
+        }
     }
 
     &::-webkit-meter-optimum-value,
     &::-webkit-meter-suboptimum-value,
     &::-webkit-meter-even-less-good-value {
-        background: $meter-background;
+        @if map-has-key($colors-map, meter-background) and map-get($colors-map, meter-background) {
+            background: map-get($colors-map, meter-background);
+        }
     }
 
     &:-moz-meter-optimum::-moz-meter-bar,
     &:-moz-meter-sub-optimum::-moz-meter-bar,
     &:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-        background: $meter-background;
+        @if map-has-key($colors-map, meter-background) and map-get($colors-map, meter-background) {
+            background: map-get($colors-map, meter-background);
+        }
     }
 
 }
 
-@mixin progress-bars-colors($background, $meter-background, $color) {
+@mixin progress-bars-colors($colors-map) {
     meter, progress, .progress {
-        background: $background;
+        @if map-has-key($colors-map, border-color) and map-get($colors-map, border-color) {
+            border-color: map-get($colors-map, border-color);
+        }
+        @if map-has-key($colors-map, background) and map-get($colors-map, background) {
+            background: map-get($colors-map, background);
+        }
     }
 
     .progress .progress-meter {
-        background: $meter-background;
+        @if map-has-key($colors-map, meter-background) and map-get($colors-map, meter-background) {
+            background: map-get($colors-map, meter-background);
+        }
 
         .progress-meter-text {
-            color: $color;
+            @if map-has-key($colors-map, color) and map-get($colors-map, color) {
+                color: map-get($colors-map, color);
+            }
         }
     }
 
     progress {
-        color: $meter-background;
-        @include include-progress-colors($background, $meter-background);
+        @include include-progress-colors($colors-map);
 
     }
 
     meter {
-        @include include-meter-colors($background, $meter-background);
+        @include include-meter-colors($colors-map);
     }
 }
 
-@mixin class-progress-bars-colors($class, $background, $meter-background, $color) {
+@mixin class-progress-bars-colors($class, $colors-map) {
     meter, progress, .progress {
         &.#{$class} {
-            background: $background;
+            @if map-has-key($colors-map, border-color) and map-get($colors-map, border-color) {
+                border-color: map-get($colors-map, border-color);
+            }
+            @if map-has-key($colors-map, background) and map-get($colors-map, background) {
+                background: map-get($colors-map, background);
+            }
         }
     }
 
     .progress.#{$class} .progress-meter {
-        background: $meter-background;
+        @if map-has-key($colors-map, meter-background) and map-get($colors-map, meter-background) {
+            background: map-get($colors-map, meter-background);
+        }
 
         .progress-meter-text {
-            color: $color;
+            @if map-has-key($colors-map, color) and map-get($colors-map, color) {
+                color: map-get($colors-map, color);
+            }
         }
     }
 
     progress.#{$class} {
-        @include include-progress-colors($background, $meter-background);
+        @include include-progress-colors($colors-map);
     }
 
     meter.#{$class} {
-        @include include-meter-colors($background, $meter-background);
+        @include include-meter-colors($colors-map);
     }
 }

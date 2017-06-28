@@ -32,9 +32,9 @@ progress, .progress {
 }
 
 progress {
-    @include include-progress-colors($progress-background-color, $progress-meter-background-color);
+    @include include-progress-colors((background: $progress-background-color, meter-background: $progress-meter-background-color));
 }
 
 meter {
-    @include include-meter-colors($progress-background-color, $progress-meter-background-color);
+    @include include-meter-colors((background: $progress-background-color, meter-background: $progress-meter-background-color));
 }
