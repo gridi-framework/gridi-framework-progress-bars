@@ -1,22 +1,61 @@
-$progress-height: 16px !default;
+$progress-display: block !default;
+$progress-width: 100% !default;
+$progress-height: 1.2em !default;
+
+//Margin
 $progress-margin-top: $elements-margin-top !default;
 $progress-margin-bottom: $elements-margin-bottom !default;
 $progress-margin-left: $elements-margin-left !default;
 $progress-margin-right: $elements-margin-right !default;
-//Defined margins for each screens.
-$progress-margin-for-screens: () !default;
-/*$progress-margin-for-screens: (
-    s1: (
-        top: 20px, //Not required. Define only the margins values you want to change. Example - s2: ( top: 20px ) - change only top margin for screens greater than s2
-        bottom: 20px,
-        left: 20px,
-        right: 20px,
-    ),
-    ...
-) !default;*/
-$progress-border: 0 !default;
-$progress-background-color: get-color(grey, 200) !default;
+$progress-margin-for-screens: $elements-margin-for-screens !default;
 
+//Outline
+$progress-outline-width: 0 !default;
+$progress-outline-style: null !default;
+$progress-outline-color: null !default;
+
+//Borders
+$progress-border-width: 0 !default;
+$progress-border-style: null !default;
+$progress-border-color: null !default;
+$progress-borders: () !default;
+$progress-border-radius: 0 !default;
+
+//Background
+$progress-background-image: null !default;
+$progress-background-position: null !default;
+$progress-background-repeat: null !default;
+$progress-background-color: get-color(grey, 200) !default;
+$progress-background-attachment: null !default;
+
+//Paddings
+$progress-padding-top: 0 !default;
+$progress-padding-bottom: 0 !default;
+$progress-padding-left: 0 !default;
+$progress-padding-right: 0 !default;
+
+//Appearance
+$progress-appearance: none !default;
+
+//Extra style
+@mixin progress-extra-style() {}
+
+//Progress meter
+//Background
+$progress-meter-background-image: null !default;
+$progress-meter-background-position: null !default;
+$progress-meter-background-repeat: null !default;
 $progress-meter-background-color: $primary-color !default;
-$progress-meter-text-font-size: 80% !default;
-$progress-meter-text-color: $hover-primary-color-background-inner-color !default;
+$progress-meter-background-attachment: null !default;
+
+//Extra style
+@mixin progress-meter-extra-style() {}
+
+//Progress meter info
+$progress-meter-info-font-size: 80% !default;
+$progress-meter-info-text-align: center !default;
+$progress-meter-info-line-height: 1.6em !default;
+$progress-meter-info-color: $hover-primary-color-background-inner-color !default;
+
+//Extra style
+@mixin progress-meter-info-extra-style() {}
