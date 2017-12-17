@@ -58,7 +58,7 @@
     @include property-from-map($colors-map, color, meter-info-color);
 }
 
-@mixin progress-bars-colors($class, $colors-map) {
+@mixin progress-bars-colors($colors-map) {
     meter, progress, .progress {
         @include progress-bars-colors-propertys($colors-map);
     }
